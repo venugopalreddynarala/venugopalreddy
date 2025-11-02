@@ -30,8 +30,7 @@ const Footer = () => {
             </a>
           </div>
           <div className="flex items-center gap-2 text-muted-foreground text-sm">
-            <span>© 2024 Venu Gopal Reddy.</span>
-            <Heart className="w-4 h-4 text-primary fill-primary" />
+            <span>© 2025 Venu Gopal Reddy Narala</span>
           </div>
         </div>
       </div>
