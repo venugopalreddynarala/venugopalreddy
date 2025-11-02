@@ -30,7 +30,7 @@ const Footer = () => {
             </a>
           </div>
           <div className="flex items-center gap-2 text-muted-foreground text-sm">
-            <span>© 2024 Venu Gopal Reddy. Designed with</span>
+            <span>© 2024 Venu Gopal Reddy.</span>
             <Heart className="w-4 h-4 text-primary fill-primary" />
           </div>
         </div>
