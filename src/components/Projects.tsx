@@ -10,8 +10,7 @@ const Projects = () => {
       description:
         "Multi-screen mobile application flow with Home, Menu, and Checkout screens. Focused on simplicity, usability, and visual hierarchy using Adobe XD.",
       technologies: ["Adobe XD", "Mobile Design", "UI/UX", "Prototyping"],
-      link: "#",
-      github: "#",
+      link: "https://xd.adobe.com/view/477dafab-a83a-4403-812f-4e52592e574c-122e/",
       showcase: "Foodly",
     },
     {
@@ -19,8 +18,7 @@ const Projects = () => {
       description:
         "Engaging Quiz App interface to enhance user learning and participation. Complete user flows with high-fidelity prototypes focusing on clarity and usability.",
       technologies: ["Adobe XD", "User Flow", "Color Psychology", "Micro-interactions"],
-      link: "#",
-      github: "#",
+      link: "https://xd.adobe.com/view/7a429438-c280-4e78-9c2c-8a55542baa67-2f11/",
       showcase: "Quizlio",
     },
     {
@@ -28,8 +26,7 @@ const Projects = () => {
       description:
         "Responsive personal portfolio website showcasing design projects and case studies. Clean, modern, and minimal aesthetic with accessibility principles.",
       technologies: ["Figma", "Responsive Design", "Accessibility", "Typography"],
-      link: "#",
-      github: "#",
+      link: "https://www.figma.com/design/9eS3lNB2Rt2OcL0ucwM7SM/Untitled?node-id=0-1&t=1PWDVyztuHpCYtrZ-1",
       showcase: "Portfolio",
     },
     {
@@ -37,8 +34,7 @@ const Projects = () => {
       description:
         "Mobile application helping users monitor income, expenses, and savings. Conducted user research to identify pain points and crafted intuitive navigation.",
       technologies: ["Adobe XD", "User Research", "Design Systems", "Mobile UX"],
-      link: "#",
-      github: "#",
+      link: "https://xd.adobe.com/view/24cccdb1-4196-4906-ad93-effc193d1ac2-719f/",
       showcase: "Finance Tracker",
     },
   ];
@@ -94,12 +90,6 @@ const Projects = () => {
                     <a href={project.link} target="_blank" rel="noopener noreferrer">
                       View Project
                       <ExternalLink className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                    </a>
-                  </Button>
-                  <Button variant="outline" size="sm" asChild>
-                    <a href={project.github} target="_blank" rel="noopener noreferrer">
-                      <Github className="mr-2 h-4 w-4" />
-                      GitHub
                     </a>
                   </Button>
                 </div>
