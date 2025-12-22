@@ -1,7 +1,12 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+
+import projectFoodly from "@/assets/project-foodly.jpg";
+import projectQuizlio from "@/assets/project-quizlio.jpg";
+import projectPortfolio from "@/assets/project-portfolio.jpg";
+import projectFinance from "@/assets/project-finance.jpg";
 
 const Projects = () => {
   const projects = [
@@ -12,6 +17,7 @@ const Projects = () => {
       technologies: ["Adobe XD", "Mobile Design", "UI/UX", "Prototyping"],
       link: "https://xd.adobe.com/view/477dafab-a83a-4403-812f-4e52592e574c-122e/",
       showcase: "Foodly",
+      image: projectFoodly,
     },
     {
       title: "Quiz App UI/UX Design",
@@ -20,6 +26,7 @@ const Projects = () => {
       technologies: ["Adobe XD", "User Flow", "Color Psychology", "Micro-interactions"],
       link: "https://xd.adobe.com/view/7a429438-c280-4e78-9c2c-8a55542baa67-2f11/",
       showcase: "Quizlio",
+      image: projectQuizlio,
     },
     {
       title: "Portfolio Website UI/UX Design",
@@ -28,6 +35,7 @@ const Projects = () => {
       technologies: ["Figma", "Responsive Design", "Accessibility", "Typography"],
       link: "https://www.figma.com/design/9eS3lNB2Rt2OcL0ucwM7SM/Untitled?node-id=0-1&t=1PWDVyztuHpCYtrZ-1",
       showcase: "Portfolio",
+      image: projectPortfolio,
     },
     {
       title: "Personal Finance Tracker Mobile App",
@@ -36,6 +44,7 @@ const Projects = () => {
       technologies: ["Adobe XD", "User Research", "Design Systems", "Mobile UX"],
       link: "https://xd.adobe.com/view/24cccdb1-4196-4906-ad93-effc193d1ac2-719f/",
       showcase: "Finance Tracker",
+      image: projectFinance,
     },
   ];
 
@@ -60,6 +69,13 @@ const Projects = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="space-y-4">
+                <div className="overflow-hidden rounded-lg mb-4">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
                 <div>
                   <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                     {project.title}
