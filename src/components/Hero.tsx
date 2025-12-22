@@ -51,8 +51,8 @@ const Hero = () => {
                 size="lg"
                 asChild
               >
-                <a href="/Venu_Gopal_Resume.pdf" download>
-                  Download Resume
+                <a href="https://drive.google.com/file/d/1K5KQ5T8PFB_XBxrpwWj06fIBp9-qSPE8/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                  View Resume
                 </a>
               </Button>
             </div>
