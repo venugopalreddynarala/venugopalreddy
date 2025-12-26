@@ -2,6 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 import projectFoodly from "@/assets/project-foodly.jpg";
 import projectQuizlio from "@/assets/project-quizlio.jpg";
@@ -9,6 +10,9 @@ import projectPortfolio from "@/assets/project-portfolio.jpg";
 import projectFinance from "@/assets/project-finance.jpg";
 
 const Projects = () => {
+  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const { ref: projectsRef, isVisible: projectsVisible } = useScrollAnimation();
+
   const projects = [
     {
       title: "Food Delivery App UI Design",
@@ -49,38 +53,50 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-card">
-      <div className="container mx-auto">
-        <div className="text-center mb-12 animate-fade-in">
+    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-card relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
+
+      <div className="container mx-auto relative z-10">
+        <div 
+          ref={titleRef}
+          className={`text-center mb-12 transition-all duration-700 ${
+            titleVisible ? 'animate-slide-up' : 'opacity-0 translate-y-10'
+          }`}
+        >
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Featured Projects
+            Featured <span className="text-gradient">Projects</span>
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+          <div className="w-20 h-1 bg-primary mx-auto rounded-full line-animated"></div>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
             Showcasing my passion for creating delightful user experiences
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+        <div ref={projectsRef} className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 animate-fade-in-up group"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className={`p-6 sm:p-8 shadow-lg hover-lift group overflow-hidden transition-all duration-500 ${
+                projectsVisible ? 'animate-scale-in' : 'opacity-0 scale-95'
+              }`}
+              style={{ animationDelay: `${index * 0.15}s` }}
             >
               <div className="space-y-4">
-                <div className="overflow-hidden rounded-lg mb-4">
+                <div className="overflow-hidden rounded-lg mb-4 relative">
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="w-full h-48 object-cover transition-all duration-500 group-hover:scale-110"
                   />
                 </div>
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
                     {project.title}
                   </h3>
-                  <p className="text-sm text-primary font-medium mb-3">
+                  <p className="text-sm text-primary font-medium mb-3 animate-shimmer inline-block px-2 py-1 rounded">
                     {project.showcase}
                   </p>
                 </div>
@@ -94,7 +110,7 @@ const Projects = () => {
                     <Badge
                       key={techIndex}
                       variant="secondary"
-                      className="bg-primary/10 text-primary hover:bg-primary/20"
+                      className="bg-primary/10 text-primary hover:bg-primary/20 hover:scale-105 transition-all duration-300"
                     >
                       {tech}
                     </Badge>
@@ -102,10 +118,10 @@ const Projects = () => {
                 </div>
 
                 <div className="flex gap-3 pt-4">
-                  <Button variant="default" size="sm" className="group/btn" asChild>
+                  <Button variant="default" size="sm" className="group/btn hover-glow" asChild>
                     <a href={project.link} target="_blank" rel="noopener noreferrer">
                       View Project
-                      <ExternalLink className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                      <ExternalLink className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
                     </a>
                   </Button>
                 </div>

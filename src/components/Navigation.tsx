@@ -33,7 +33,7 @@ const Navigation = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled ? "bg-card/95 backdrop-blur-md shadow-lg" : "bg-transparent"
       }`}
     >
@@ -41,27 +41,29 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           <button
             onClick={() => scrollToSection("home")}
-            className="text-xl md:text-2xl font-bold text-primary hover:text-accent transition-colors"
+            className="text-xl md:text-2xl font-bold text-gradient hover:scale-110 transition-transform duration-300"
           >
             VGR
           </button>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
+            {navItems.map((item, index) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+                className="text-foreground hover:text-primary transition-all duration-300 font-medium relative group story-link"
+                style={{ animationDelay: `${index * 0.05}s` }}
               >
                 {item.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
               </button>
             ))}
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-foreground hover:text-primary transition-colors"
+            className="md:hidden text-foreground hover:text-primary transition-all duration-300 hover:scale-110"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -70,13 +72,14 @@ const Navigation = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 animate-fade-in">
-            <div className="flex flex-col space-y-3">
-              {navItems.map((item) => (
+          <div className="md:hidden py-4 animate-slide-up bg-card/95 backdrop-blur-md rounded-lg shadow-lg">
+            <div className="flex flex-col space-y-3 px-4">
+              {navItems.map((item, index) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-foreground hover:text-primary transition-colors duration-200 font-medium py-2 text-left"
+                  className="text-foreground hover:text-primary transition-all duration-300 font-medium py-2 text-left hover:translate-x-2 animate-slide-right"
+                  style={{ animationDelay: `${index * 0.05}s` }}
                 >
                   {item.label}
                 </button>
