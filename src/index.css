@@ -210,6 +210,15 @@ All colors MUST be HSL.
   }
 }
 
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 0.8s infinite;
+}
+
 @keyframes float {
   0%, 100% {
     transform: translateY(0px);

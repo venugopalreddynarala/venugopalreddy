@@ -1,8 +1,27 @@
 import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import profilePhoto from "@/assets/profile-photo.jpg";
+import { useState, useEffect } from "react";
 
 const Hero = () => {
+  const [displayText, setDisplayText] = useState("");
+  const [isTypingComplete, setIsTypingComplete] = useState(false);
+  const fullName = "Venu Gopal Reddy";
+
+  useEffect(() => {
+    let index = 0;
+    const typingInterval = setInterval(() => {
+      if (index <= fullName.length) {
+        setDisplayText(fullName.slice(0, index));
+        index++;
+      } else {
+        clearInterval(typingInterval);
+        setIsTypingComplete(true);
+      }
+    }, 100);
+
+    return () => clearInterval(typingInterval);
+  }, []);
   const scrollToContact = () => {
     const element = document.getElementById("contact");
     if (element) {
@@ -31,7 +50,10 @@ const Hero = () => {
                 Hi there, I'm
               </p>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold animate-blur-in stagger-2">
-                <span className="text-gradient">Venu Gopal Reddy</span>
+                <span className="text-gradient">
+                  {displayText}
+                  <span className={`inline-block w-[3px] h-[1em] bg-primary ml-1 align-middle ${isTypingComplete ? 'animate-pulse' : 'animate-blink'}`} />
+                </span>
               </h1>
               <p className="text-2xl sm:text-3xl text-muted-foreground font-light animate-slide-up stagger-3">
                 UI/UX Designer
