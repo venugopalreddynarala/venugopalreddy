@@ -36,9 +36,14 @@ const Hero = () => {
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-float-delayed" />
-        <div className="absolute top-1/2 left-1/4 w-48 h-48 bg-secondary/20 rounded-full blur-2xl animate-float" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl parallax-slow" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl parallax-medium" />
+        <div className="absolute top-1/2 left-1/4 w-48 h-48 bg-secondary/20 rounded-full blur-2xl parallax-fast" />
+        
+        {/* Floating particles */}
+        <div className="absolute top-1/3 left-1/2 w-2 h-2 bg-primary/40 rounded-full particle" style={{ '--tx': '50px', '--ty': '-80px' } as React.CSSProperties} />
+        <div className="absolute top-2/3 left-1/3 w-3 h-3 bg-accent/30 rounded-full particle" style={{ '--tx': '-60px', '--ty': '-120px', animationDelay: '2s' } as React.CSSProperties} />
+        <div className="absolute top-1/4 right-1/3 w-2 h-2 bg-primary/50 rounded-full particle" style={{ '--tx': '80px', '--ty': '-100px', animationDelay: '4s' } as React.CSSProperties} />
       </div>
 
       <div className="container mx-auto relative z-10">
@@ -56,7 +61,7 @@ const Hero = () => {
                 </span>
               </h1>
               <p className="text-2xl sm:text-3xl text-muted-foreground font-light animate-slide-up stagger-3">
-                UI/UX Designer
+                <span className="underline-animate">UI/UX Designer</span>
               </p>
             </div>
 
@@ -70,7 +75,7 @@ const Hero = () => {
               <Button
                 onClick={scrollToContact}
                 size="lg"
-                className="group hover-lift hover-glow"
+                className="group magnetic-btn glow-border ripple hover-glow"
               >
                 Let's Connect
                 <ArrowDown className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
@@ -78,7 +83,7 @@ const Hero = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="hover-lift"
+                className="magnetic-btn hover-lift"
                 asChild
               >
                 <a href="https://drive.google.com/file/d/1K5KQ5T8PFB_XBxrpwWj06fIBp9-qSPE8/view?usp=sharing" target="_blank" rel="noopener noreferrer">
@@ -92,7 +97,7 @@ const Hero = () => {
                 href="https://github.com/venugopalreddynarala"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-all duration-300 p-2 hover:scale-125 hover-glow rounded-full"
+                className="text-muted-foreground hover:text-primary transition-all duration-300 p-2 elastic-scale hover-glow rounded-full pulse-ring"
               >
                 <Github size={24} />
               </a>
@@ -100,13 +105,13 @@ const Hero = () => {
                 href="https://linkedin.com/in/venugopalreddynarala"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-all duration-300 p-2 hover:scale-125 hover-glow rounded-full"
+                className="text-muted-foreground hover:text-primary transition-all duration-300 p-2 elastic-scale hover-glow rounded-full"
               >
                 <Linkedin size={24} />
               </a>
               <a
                 href="mailto:naralavenugopalreddy@gmail.com"
-                className="text-muted-foreground hover:text-primary transition-all duration-300 p-2 hover:scale-125 hover-glow rounded-full"
+                className="text-muted-foreground hover:text-primary transition-all duration-300 p-2 elastic-scale hover-glow rounded-full"
               >
                 <Mail size={24} />
               </a>
@@ -117,12 +122,14 @@ const Hero = () => {
           <div className="flex-shrink-0 animate-scale-in stagger-3">
             <div className="relative group">
               <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl animate-glow group-hover:bg-primary/30 transition-colors duration-500"></div>
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-full blur-2xl animate-float opacity-60"></div>
-              <img
-                src={profilePhoto}
-                alt="Venu Gopal Reddy"
-                className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full object-cover border-8 border-card shadow-2xl transition-transform duration-500 group-hover:scale-105"
-              />
+              <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-full blur-2xl morph-bg opacity-60"></div>
+              <div className="relative pulse-ring rounded-full">
+                <img
+                  src={profilePhoto}
+                  alt="Venu Gopal Reddy"
+                  className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full object-cover border-8 border-card shadow-2xl transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -130,7 +137,7 @@ const Hero = () => {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce-subtle">
-        <div className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex items-start justify-center p-2">
+        <div className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex items-start justify-center p-2 glow-border">
           <div className="w-1.5 h-3 bg-primary rounded-full animate-slide-up" style={{ animationDuration: '1.5s', animationIterationCount: 'infinite' }} />
         </div>
       </div>

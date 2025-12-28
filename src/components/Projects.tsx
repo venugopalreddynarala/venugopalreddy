@@ -78,22 +78,22 @@ const Projects = () => {
           {projects.map((project, index) => (
             <Card
               key={index}
-              className={`p-6 sm:p-8 shadow-lg hover-lift group overflow-hidden transition-all duration-500 ${
-                projectsVisible ? 'animate-scale-in' : 'opacity-0 scale-95'
+              className={`p-6 sm:p-8 shadow-lg card-3d spotlight group overflow-hidden transition-all duration-500 ${
+                projectsVisible ? 'slide-fade-up' : 'opacity-0'
               }`}
               style={{ animationDelay: `${index * 0.15}s` }}
             >
               <div className="space-y-4">
-                <div className="overflow-hidden rounded-lg mb-4 relative">
+                <div className="overflow-hidden rounded-lg mb-4 relative image-reveal">
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-48 object-cover transition-all duration-500 group-hover:scale-110"
+                    className="w-full h-48 object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-1"
                   />
                 </div>
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                  <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300 underline-animate">
                     {project.title}
                   </h3>
                   <p className="text-sm text-primary font-medium mb-3 animate-shimmer inline-block px-2 py-1 rounded">
@@ -110,7 +110,7 @@ const Projects = () => {
                     <Badge
                       key={techIndex}
                       variant="secondary"
-                      className="bg-primary/10 text-primary hover:bg-primary/20 hover:scale-105 transition-all duration-300"
+                      className="bg-primary/10 text-primary hover:bg-primary/20 elastic-scale transition-all duration-300 ripple"
                     >
                       {tech}
                     </Badge>
@@ -118,7 +118,7 @@ const Projects = () => {
                 </div>
 
                 <div className="flex gap-3 pt-4">
-                  <Button variant="default" size="sm" className="group/btn hover-glow" asChild>
+                  <Button variant="default" size="sm" className="group/btn magnetic-btn glow-border ripple" asChild>
                     <a href={project.link} target="_blank" rel="noopener noreferrer">
                       View Project
                       <ExternalLink className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
