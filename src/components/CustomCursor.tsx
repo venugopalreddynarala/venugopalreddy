@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import penCursor from "@/assets/pen-cursor.png";
 
 interface InkDot {
   id: number;
@@ -60,66 +61,27 @@ const CustomCursor = () => {
 
   return (
     <div className="pointer-events-none fixed inset-0 z-[9999] hidden md:block">
-      {/* Fountain Pen Nib - 3D Blue Style */}
-      <svg
-        width="40"
-        height="40"
-        viewBox="0 0 100 100"
+      {/* Pen Cursor Image */}
+      <img
+        src={penCursor}
+        alt=""
+        width={32}
+        height={32}
         className="absolute"
         style={{
           left: position.x,
           top: position.y,
-          transform: "translate(-5%, -5%)",
+          transform: "translate(-2px, -2px)",
           opacity: isVisible ? 1 : 0,
           transition: "opacity 0.1s",
         }}
-      >
-        {/* Main nib body - dark blue */}
-        <path
-          d="M35 15 L60 40 L55 50 L45 55 L20 30 Z"
-          fill="#1e5799"
-        />
-        {/* Nib tip - pointed */}
-        <path
-          d="M20 30 L5 5 L35 15 Z"
-          fill="#0ea5e9"
-        />
-        {/* Left face - lighter blue for 3D effect */}
-        <path
-          d="M5 5 L20 30 L45 55 L50 70 L25 45 Z"
-          fill="#38bdf8"
-        />
-        {/* Right face - medium blue */}
-        <path
-          d="M35 15 L60 40 L65 55 L50 70 L45 55 L20 30 Z"
-          fill="#0284c7"
-        />
-        {/* Inner cut/slit */}
-        <path
-          d="M25 25 L45 45"
-          stroke="#0c4a6e"
-          strokeWidth="2"
-          fill="none"
-        />
-        {/* Highlight edge */}
-        <path
-          d="M5 5 L35 15"
-          stroke="#7dd3fc"
-          strokeWidth="1.5"
-          fill="none"
-        />
-        {/* Bottom connector */}
-        <path
-          d="M50 70 L55 50 L65 55 Z"
-          fill="#1e3a5f"
-        />
-      </svg>
+      />
 
       {/* Ink Dots */}
       {inkDots.map(dot => (
         <div
           key={dot.id}
-          className="absolute rounded-full bg-foreground animate-ink-splash"
+          className="absolute rounded-full bg-[#0ea5e9] animate-ink-splash"
           style={{
             left: dot.x,
             top: dot.y,
