@@ -177,6 +177,26 @@ All colors MUST be HSL.
   }
 }
 
+/* Ink Splash Animation */
+@keyframes ink-splash {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.animate-ink-splash {
+  animation: ink-splash 1s ease-out forwards;
+}
+
 /* Custom Animations */
 @layer utilities {
   .animate-float {
