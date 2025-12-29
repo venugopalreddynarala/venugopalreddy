@@ -60,47 +60,58 @@ const CustomCursor = () => {
 
   return (
     <div className="pointer-events-none fixed inset-0 z-[9999] hidden md:block">
-      {/* Fountain Pen Nib */}
+      {/* Fountain Pen Nib - 3D Blue Style */}
       <svg
-        width="32"
-        height="32"
-        viewBox="0 0 32 32"
+        width="40"
+        height="40"
+        viewBox="0 0 100 100"
         className="absolute"
         style={{
           left: position.x,
           top: position.y,
-          transform: "translate(-2px, -2px) rotate(-45deg)",
+          transform: "translate(-5%, -5%)",
           opacity: isVisible ? 1 : 0,
           transition: "opacity 0.1s",
         }}
       >
-        {/* Nib body */}
+        {/* Main nib body - dark blue */}
         <path
-          d="M4 2 L16 14 L14 16 L2 4 Z"
-          fill="hsl(var(--primary))"
-          stroke="hsl(var(--primary-foreground))"
-          strokeWidth="0.5"
+          d="M35 15 L60 40 L55 50 L45 55 L20 30 Z"
+          fill="#1e5799"
         />
-        {/* Nib tip */}
+        {/* Nib tip - pointed */}
         <path
-          d="M2 4 L4 2 L1 1 Z"
-          fill="hsl(var(--foreground))"
+          d="M20 30 L5 5 L35 15 Z"
+          fill="#0ea5e9"
         />
-        {/* Nib slit */}
-        <line
-          x1="3"
-          y1="3"
-          x2="12"
-          y2="12"
-          stroke="hsl(var(--background))"
-          strokeWidth="0.8"
-        />
-        {/* Ink reservoir hint */}
+        {/* Left face - lighter blue for 3D effect */}
         <path
-          d="M14 16 L16 14 L20 18 L18 20 Z"
-          fill="hsl(var(--muted))"
-          stroke="hsl(var(--border))"
-          strokeWidth="0.3"
+          d="M5 5 L20 30 L45 55 L50 70 L25 45 Z"
+          fill="#38bdf8"
+        />
+        {/* Right face - medium blue */}
+        <path
+          d="M35 15 L60 40 L65 55 L50 70 L45 55 L20 30 Z"
+          fill="#0284c7"
+        />
+        {/* Inner cut/slit */}
+        <path
+          d="M25 25 L45 45"
+          stroke="#0c4a6e"
+          strokeWidth="2"
+          fill="none"
+        />
+        {/* Highlight edge */}
+        <path
+          d="M5 5 L35 15"
+          stroke="#7dd3fc"
+          strokeWidth="1.5"
+          fill="none"
+        />
+        {/* Bottom connector */}
+        <path
+          d="M50 70 L55 50 L65 55 Z"
+          fill="#1e3a5f"
         />
       </svg>
 
