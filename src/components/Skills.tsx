@@ -1,12 +1,10 @@
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import SkillBar from "@/components/SkillBar";
 
 const Skills = () => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
   const { ref: skillsRef, isVisible: skillsVisible } = useScrollAnimation();
-  const { ref: barsRef, isVisible: barsVisible } = useScrollAnimation();
 
   const skillCategories = [
     {
@@ -54,14 +52,6 @@ const Skills = () => {
     },
   ];
 
-  const proficiencySkills = [
-    { skill: "Figma", level: 90, color: "bg-gradient-to-r from-primary to-accent" },
-    { skill: "Adobe XD", level: 85, color: "bg-gradient-to-r from-purple-500 to-pink-500" },
-    { skill: "UI Design", level: 88, color: "bg-gradient-to-r from-blue-500 to-cyan-500" },
-    { skill: "UX Research", level: 82, color: "bg-gradient-to-r from-green-500 to-emerald-500" },
-    { skill: "Prototyping", level: 87, color: "bg-gradient-to-r from-orange-500 to-yellow-500" },
-  ];
-
   return (
     <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 bg-background relative overflow-hidden">
       {/* Background decoration */}
@@ -82,25 +72,6 @@ const Skills = () => {
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
             A comprehensive toolkit for creating exceptional user experiences
           </p>
-        </div>
-
-        {/* Proficiency Bars */}
-        <div 
-          ref={barsRef}
-          className={`max-w-2xl mx-auto mb-12 space-y-4 transition-all duration-700 ${
-            barsVisible ? 'animate-slide-up' : 'opacity-0 translate-y-10'
-          }`}
-        >
-          <h3 className="text-xl font-semibold text-foreground mb-6 text-center">Proficiency Levels</h3>
-          {proficiencySkills.map((skill, index) => (
-            <SkillBar
-              key={skill.skill}
-              skill={skill.skill}
-              level={skill.level}
-              color={skill.color}
-              delay={index * 200}
-            />
-          ))}
         </div>
 
         <div ref={skillsRef} className="max-w-6xl mx-auto space-y-6">
