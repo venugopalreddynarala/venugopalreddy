@@ -70,31 +70,33 @@ const CustomCursor = () => {
     <div className="pointer-events-none fixed inset-0 z-[9999] hidden md:block">
       {/* Outer ring */}
       <div
-        className={`absolute rounded-full border transition-all duration-500 ease-out ${
+        className={`absolute rounded-full border-2 ${
           isHovering 
-            ? "w-12 h-12 border-accent bg-accent/5" 
-            : "w-8 h-8 border-primary/50"
-        } ${isClicking ? "scale-90" : "scale-100"}`}
+            ? "w-10 h-10 border-accent" 
+            : "w-6 h-6 border-primary"
+        } ${isClicking ? "scale-75" : "scale-100"}`}
         style={{
           left: position.x,
           top: position.y,
           transform: "translate(-50%, -50%)",
           opacity: isVisible ? 1 : 0,
+          transition: "width 0.1s, height 0.1s, border-color 0.1s, transform 0.08s",
         }}
       />
 
       {/* Inner dot */}
       <div
-        className={`absolute rounded-full transition-all duration-200 ease-out ${
+        className={`absolute rounded-full ${
           isHovering 
-            ? "w-1.5 h-1.5 bg-accent" 
-            : "w-2 h-2 bg-primary"
-        } ${isClicking ? "scale-150" : "scale-100"}`}
+            ? "w-1 h-1 bg-accent" 
+            : "w-1.5 h-1.5 bg-primary"
+        } ${isClicking ? "scale-0" : "scale-100"}`}
         style={{
           left: position.x,
           top: position.y,
           transform: "translate(-50%, -50%)",
           opacity: isVisible ? 1 : 0,
+          transition: "transform 0.05s, opacity 0.05s",
         }}
       />
     </div>
