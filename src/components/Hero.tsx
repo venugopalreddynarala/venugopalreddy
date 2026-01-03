@@ -61,14 +61,14 @@ const Hero = () => {
                 </span>
               </h1>
               <p className="text-2xl sm:text-3xl text-muted-foreground font-light animate-slide-up stagger-3">
-                <span className="underline-animate">UI/UX Designer</span>
+                <span className="underline-animate">UI/UX Designer & AI/ML Developer</span>
               </p>
             </div>
 
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0 animate-slide-up stagger-4">
               Crafting intuitive digital experiences through user-centered design.
               <br className="hidden sm:block" />
-              Passionate about turning complex problems into beautiful solutions.
+              Building intelligent solutions with AI, Machine Learning & Full-Stack Development.
             </p>
 
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 animate-slide-up stagger-5">
