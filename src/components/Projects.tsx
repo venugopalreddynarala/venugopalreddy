@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Palette, Code } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
@@ -13,7 +14,8 @@ const Projects = () => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
   const { ref: projectsRef, isVisible: projectsVisible } = useScrollAnimation();
 
-  const projects = [
+  // UI/UX Design Projects
+  const uiuxProjects = [
     {
       title: "Food Delivery App UI Design",
       description:
@@ -52,6 +54,49 @@ const Projects = () => {
     },
   ];
 
+  // Technical Projects
+  const technicalProjects = [
+    {
+      title: "Inventory Management System",
+      description:
+        "Created a full-stack web application for managing inventory, users, and stock data with complete CRUD operations and role-based access control. Designed a responsive dashboard for real-time updates and better usability.",
+      technologies: ["HTML", "CSS", "JavaScript", "MySQL", "Bootstrap", "PHP"],
+      link: "#",
+      showcase: "Web Application",
+      image: projectFoodly,
+    },
+    {
+      title: "AI-Powered Smart Cursor Control System",
+      description:
+        "Built an AI-based assistive system enabling hands-free computer control through head and eye movement tracking. Used computer vision and facial landmark detection to translate gestures into cursor actions for differently-abled users.",
+      technologies: ["Python", "OpenCV", "MediaPipe", "CNN"],
+      link: "#",
+      showcase: "Assistive Technology",
+      image: projectQuizlio,
+    },
+    {
+      title: "AI-Powered X-Ray Visualization for Pneumonia Detection",
+      description:
+        "Developed a deep learning model using CNN to detect pneumonia from chest X-ray images and integrated GradCAM explainable AI for visual interpretation of predictions. Built a Flask web app for real-time image uploads and diagnostic visualization.",
+      technologies: ["TensorFlow", "Keras", "Flask", "Grad-CAM", "NumPy", "Matplotlib"],
+      link: "#",
+      showcase: "Healthcare AI",
+      image: projectPortfolio,
+    },
+    {
+      title: "Intelligent Payment Fraud Detection",
+      description:
+        "Developed a machine learning model to detect and prevent fraudulent online transactions using classification algorithms. Performed data preprocessing, feature selection, and model evaluation to enhance detection accuracy and reduce false positives.",
+      technologies: ["Python", "Scikit-learn", "Pandas", "NumPy", "Matplotlib"],
+      link: "#",
+      showcase: "Machine Learning",
+      image: projectFinance,
+    },
+  ];
+
+  const [activeTab, setActiveTab] = useState<'uiux' | 'technical'>('uiux');
+  const projects = activeTab === 'uiux' ? uiuxProjects : technicalProjects;
+
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-card relative overflow-hidden">
       {/* Background decoration */}
@@ -70,8 +115,28 @@ const Projects = () => {
           </h2>
           <div className="w-20 h-1 bg-primary mx-auto rounded-full line-animated"></div>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-            Showcasing my passion for creating delightful user experiences
+            Showcasing my passion for creating delightful user experiences and technical solutions
           </p>
+          
+          {/* Tab Switcher */}
+          <div className="flex justify-center gap-4 mt-8">
+            <Button
+              variant={activeTab === 'uiux' ? 'default' : 'outline'}
+              onClick={() => setActiveTab('uiux')}
+              className="gap-2 transition-all duration-300"
+            >
+              <Palette className="w-4 h-4" />
+              UI/UX Design
+            </Button>
+            <Button
+              variant={activeTab === 'technical' ? 'default' : 'outline'}
+              onClick={() => setActiveTab('technical')}
+              className="gap-2 transition-all duration-300"
+            >
+              <Code className="w-4 h-4" />
+              Technical Projects
+            </Button>
+          </div>
         </div>
 
         <div ref={projectsRef} className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
