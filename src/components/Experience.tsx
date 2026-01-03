@@ -9,20 +9,59 @@ const Experience = () => {
   const { ref: certRef, isVisible: certVisible } = useScrollAnimation();
   const { ref: achieveRef, isVisible: achieveVisible } = useScrollAnimation();
 
-  const workExperience = {
-    title: "UI/UX Design Intern",
-    company: "LearnFlu",
-    type: "Remote",
-    period: "2023",
-    responsibilities: [
-      "Worked on real-world UI design projects focused on responsive layouts and modern interface patterns",
-      "Enhanced visual consistency and improved user flows for client websites using Adobe XD",
-      "Collaborated with design team on design handoff workflows using Zeplin and GitHub",
-      "Gained hands-on experience in smooth development integration processes",
-    ],
-  };
+  const workExperiences = [
+    {
+      title: "UI/UX Design Intern",
+      company: "LearnFlu",
+      type: "Remote",
+      period: "2023",
+      responsibilities: [
+        "Worked on real-world UI design projects focused on responsive layouts and modern interface patterns",
+        "Enhanced visual consistency and improved user flows for client websites using Adobe XD",
+        "Collaborated with design team on design handoff workflows using Zeplin and GitHub",
+        "Gained hands-on experience in smooth development integration processes",
+      ],
+    },
+    {
+      title: "Web Development Intern",
+      company: "LearnFlu",
+      type: "Remote",
+      period: "2024",
+      responsibilities: [
+        "Successfully completed the Web Development Program working on real-world project development",
+        "Built and tested responsive web components under industry guidance",
+        "Strengthened debugging, problem-solving, and understanding of standard development workflows",
+        "Developed full-stack web applications with modern technologies",
+      ],
+    },
+  ];
 
   const certificates = [
+    {
+      title: "Full-Stack Web Development",
+      issuer: "LearnFlu (Pursuing)",
+      icon: Award,
+    },
+    {
+      title: "Networking and Python Certification",
+      issuer: "Cisco",
+      icon: Award,
+    },
+    {
+      title: "Data Science Certification",
+      issuer: "Wipro TalentNext",
+      icon: Award,
+    },
+    {
+      title: "Software Engineering Virtual Experience",
+      issuer: "JPMorgan Chase & Co.",
+      icon: Award,
+    },
+    {
+      title: "Data Analytics Virtual Experience",
+      issuer: "Deloitte",
+      icon: Award,
+    },
     {
       title: "UI/UX Design Fundamentals",
       issuer: "Great Learning",
@@ -34,11 +73,6 @@ const Experience = () => {
       icon: Award,
     },
     {
-      title: "Adobe XD Essentials for Beginners",
-      issuer: "Simplilearn SkillUp",
-      icon: Award,
-    },
-    {
       title: "UX Design Short Course",
       issuer: "CareerFoundry",
       icon: Award,
@@ -46,7 +80,7 @@ const Experience = () => {
   ];
 
   const achievements = [
-    "Created multiple UI/UX Designs",
+    "Created multiple UI/UX Designs and Full-Stack Applications",
     "Organized college-level UI/UX workshops and design challenges",
     "Participated in UX hackathons and interface redesign competitions",
     "Fluent in English, Telugu, Tamil",
@@ -72,45 +106,50 @@ const Experience = () => {
         </div>
 
         <div className="max-w-5xl mx-auto space-y-8">
-          {/* Work Experience */}
-          <Card 
-            ref={workRef}
-            className={`p-6 sm:p-8 shadow-lg hover-lift transition-all duration-500 ${
-              workVisible ? 'animate-slide-right' : 'opacity-0 -translate-x-10'
-            }`}
-          >
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center animate-glow group-hover:scale-110 transition-transform">
-                  <Briefcase className="w-6 h-6 text-primary" />
-                </div>
-              </div>
-              <div className="flex-1">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
-                  <div>
-                    <h3 className="text-xl font-bold text-foreground">
-                      {workExperience.title}
-                    </h3>
-                    <p className="text-primary font-medium">
-                      {workExperience.company}
-                    </p>
+          {/* Work Experiences */}
+          <div ref={workRef} className="space-y-6">
+            {workExperiences.map((workExperience, expIndex) => (
+              <Card 
+                key={expIndex}
+                className={`p-6 sm:p-8 shadow-lg hover-lift transition-all duration-500 ${
+                  workVisible ? 'animate-slide-right' : 'opacity-0 -translate-x-10'
+                }`}
+                style={{ animationDelay: `${expIndex * 0.15}s` }}
+              >
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center animate-glow group-hover:scale-110 transition-transform">
+                      <Briefcase className="w-6 h-6 text-primary" />
+                    </div>
                   </div>
-                  <div className="flex gap-2">
-                    <Badge variant="secondary" className="hover:scale-105 transition-transform">{workExperience.type}</Badge>
-                    <Badge variant="outline" className="hover:scale-105 transition-transform">{workExperience.period}</Badge>
+                  <div className="flex-1">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+                      <div>
+                        <h3 className="text-xl font-bold text-foreground">
+                          {workExperience.title}
+                        </h3>
+                        <p className="text-primary font-medium">
+                          {workExperience.company}
+                        </p>
+                      </div>
+                      <div className="flex gap-2">
+                        <Badge variant="secondary" className="hover:scale-105 transition-transform">{workExperience.type}</Badge>
+                        <Badge variant="outline" className="hover:scale-105 transition-transform">{workExperience.period}</Badge>
+                      </div>
+                    </div>
+                    <ul className="space-y-2 text-muted-foreground">
+                      {workExperience.responsibilities.map((item, index) => (
+                        <li key={index} className="flex items-start gap-2 animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
+                          <span className="text-primary mt-1.5 animate-bounce-subtle">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
-                <ul className="space-y-2 text-muted-foreground">
-                  {workExperience.responsibilities.map((item, index) => (
-                    <li key={index} className="flex items-start gap-2 animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
-                      <span className="text-primary mt-1.5 animate-bounce-subtle">•</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </Card>
+              </Card>
+            ))}
+          </div>
 
           {/* Certificates */}
           <div ref={certRef}>

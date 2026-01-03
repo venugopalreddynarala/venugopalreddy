@@ -8,9 +8,49 @@ const Skills = () => {
 
   const skillCategories = [
     {
+      title: "Programming Languages",
+      skills: ["Python", "C", "SQL", "JavaScript"],
+      color: "bg-blue-500/10 text-blue-700 dark:text-blue-400 hover:bg-blue-500/20 elastic-scale",
+    },
+    {
+      title: "AI & Machine Learning",
+      skills: [
+        "TensorFlow",
+        "OpenCV",
+        "Scikit-learn",
+        "NumPy",
+        "Pandas",
+        "Matplotlib",
+        "LLMs",
+        "Prompt Engineering",
+      ],
+      color: "bg-purple-500/10 text-purple-700 dark:text-purple-400 hover:bg-purple-500/20 elastic-scale",
+    },
+    {
+      title: "AI Tools & Platforms",
+      skills: [
+        "Google Colab",
+        "Jupyter Notebook",
+        "OpenAI API",
+        "Gemini API",
+        "MediaPipe",
+      ],
+      color: "bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 hover:bg-cyan-500/20 elastic-scale",
+    },
+    {
+      title: "Web Development",
+      skills: ["HTML", "CSS", "JavaScript", "PHP", "Bootstrap", "Flask"],
+      color: "bg-orange-500/10 text-orange-700 dark:text-orange-400 hover:bg-orange-500/20 elastic-scale",
+    },
+    {
+      title: "Databases & Data Analysis",
+      skills: ["MySQL", "MS Excel", "Google Sheets", "Power BI"],
+      color: "bg-green-500/10 text-green-700 dark:text-green-400 hover:bg-green-500/20 elastic-scale",
+    },
+    {
       title: "Design Tools",
       skills: ["Adobe XD", "Figma", "Photoshop", "Canva"],
-      color: "bg-blue-500/10 text-blue-700 dark:text-blue-400 hover:bg-blue-500/20 elastic-scale",
+      color: "bg-indigo-500/10 text-indigo-700 dark:text-indigo-400 hover:bg-indigo-500/20 elastic-scale",
     },
     {
       title: "UX Methods",
@@ -21,31 +61,21 @@ const Skills = () => {
         "Persona Creation",
         "Usability Testing",
       ],
-      color: "bg-purple-500/10 text-purple-700 dark:text-purple-400 hover:bg-purple-500/20 elastic-scale",
+      color: "bg-violet-500/10 text-violet-700 dark:text-violet-400 hover:bg-violet-500/20 elastic-scale",
     },
     {
-      title: "UI Skills",
-      skills: [
-        "Layout Design",
-        "Typography",
-        "Color Theory",
-        "Visual Hierarchy",
-        "Responsive Design",
-      ],
-      color: "bg-green-500/10 text-green-700 dark:text-green-400 hover:bg-green-500/20 elastic-scale",
-    },
-    {
-      title: "Front-End Basics",
-      skills: ["HTML", "CSS", "JavaScript"],
-      color: "bg-orange-500/10 text-orange-700 dark:text-orange-400 hover:bg-orange-500/20 elastic-scale",
+      title: "Dev Tools",
+      skills: ["VS Code", "Git", "GitHub", "Google Colab", "Jupyter Notebook"],
+      color: "bg-slate-500/10 text-slate-700 dark:text-slate-400 hover:bg-slate-500/20 elastic-scale",
     },
     {
       title: "Soft Skills",
       skills: [
-        "Creativity",
-        "Empathy",
-        "Collaboration",
         "Problem-Solving",
+        "Analytical Thinking",
+        "Self Learning",
+        "Presentation",
+        "Adaptability",
         "Communication",
       ],
       color: "bg-pink-500/10 text-pink-700 dark:text-pink-400 hover:bg-pink-500/20 elastic-scale",
