@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { Palette, Users, Lightbulb, Target, Award, Briefcase } from "lucide-react";
+import { Palette, Users, Lightbulb, Target, Award, Briefcase, Code, Brain } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import AnimatedCounter from "@/components/AnimatedCounter";
 
@@ -12,7 +12,17 @@ const About = () => {
     {
       icon: Palette,
       title: "Creative Design",
-      description: "Crafting visually stunning interfaces",
+      description: "Crafting visually stunning and intuitive interfaces",
+    },
+    {
+      icon: Brain,
+      title: "AI & ML Expert",
+      description: "Building intelligent solutions with machine learning",
+    },
+    {
+      icon: Code,
+      title: "Full-Stack Dev",
+      description: "Developing robust web applications end-to-end",
     },
     {
       icon: Users,
@@ -27,7 +37,7 @@ const About = () => {
     {
       icon: Target,
       title: "Detail-Oriented",
-      description: "Every pixel matters in creating excellence",
+      description: "Every pixel and line of code matters",
     },
   ];
 
@@ -63,17 +73,19 @@ const About = () => {
             }`}
           >
             <p className="text-lg text-muted-foreground leading-relaxed text-center sm:text-left">
-              I'm a dedicated UI/UX Designer with a passion for creating intuitive and
-              visually compelling digital experiences. My journey in design is driven by
-              curiosity and empathy—I believe that great design starts with understanding
-              people. With expertise in tools like Figma and Adobe XD, I bring ideas to
-              life through wireframing, prototyping, and user research.
+              I'm a passionate UI/UX Designer and AI/ML Developer with expertise in creating 
+              intuitive digital experiences and building intelligent solutions. My journey combines 
+              design thinking with technical excellence—I believe great products emerge from the 
+              intersection of beautiful interfaces and powerful technology. With expertise in tools 
+              like Figma, Adobe XD, Python, TensorFlow, and modern web technologies, I bring ideas 
+              to life through both visual design and code.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mt-4 text-center sm:text-left">
-              Currently pursuing my B.Tech in Computer Science (AI & Data Science) at Vel
-              Tech, I'm constantly exploring the intersection of technology and design.
-              Whether it's designing a seamless mobile app flow or crafting a responsive
-              website, I strive to make every interaction meaningful and delightful.
+              Currently pursuing my B.Tech in Computer Science (AI & Data Science) at Vel Tech, 
+              I'm constantly exploring how AI can enhance user experiences. Whether it's designing 
+              a seamless mobile app, building a machine learning model for healthcare, or developing 
+              a full-stack web application, I strive to create solutions that are both meaningful 
+              and impactful.
             </p>
           </Card>
 
@@ -106,7 +118,7 @@ const About = () => {
 
           <div 
             ref={cardsRef}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             {highlights.map((item, index) => {
               const Icon = item.icon;
