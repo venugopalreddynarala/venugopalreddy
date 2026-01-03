@@ -9,6 +9,10 @@ import projectFoodly from "@/assets/project-foodly.jpg";
 import projectQuizlio from "@/assets/project-quizlio.jpg";
 import projectPortfolio from "@/assets/project-portfolio.jpg";
 import projectFinance from "@/assets/project-finance.jpg";
+import projectInventory from "@/assets/project-inventory.jpg";
+import projectCursorControl from "@/assets/project-cursor-control.jpg";
+import projectXray from "@/assets/project-xray.jpg";
+import projectFraud from "@/assets/project-fraud.jpg";
 
 const Projects = () => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
@@ -63,7 +67,7 @@ const Projects = () => {
       technologies: ["HTML", "CSS", "JavaScript", "MySQL", "Bootstrap", "PHP"],
       link: "#",
       showcase: "Web Application",
-      image: projectFoodly,
+      image: projectInventory,
     },
     {
       title: "AI-Powered Smart Cursor Control System",
@@ -72,7 +76,7 @@ const Projects = () => {
       technologies: ["Python", "OpenCV", "MediaPipe", "CNN"],
       link: "#",
       showcase: "Assistive Technology",
-      image: projectQuizlio,
+      image: projectCursorControl,
     },
     {
       title: "AI-Powered X-Ray Visualization for Pneumonia Detection",
@@ -81,7 +85,7 @@ const Projects = () => {
       technologies: ["TensorFlow", "Keras", "Flask", "Grad-CAM", "NumPy", "Matplotlib"],
       link: "#",
       showcase: "Healthcare AI",
-      image: projectPortfolio,
+      image: projectXray,
     },
     {
       title: "Intelligent Payment Fraud Detection",
@@ -90,7 +94,7 @@ const Projects = () => {
       technologies: ["Python", "Scikit-learn", "Pandas", "NumPy", "Matplotlib"],
       link: "#",
       showcase: "Machine Learning",
-      image: projectFinance,
+      image: projectFraud,
     },
   ];
 
