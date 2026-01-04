@@ -97,13 +97,6 @@ All colors MUST be HSL.
 @layer base {
   * {
     @apply border-border;
-    cursor: none;
-  }
-
-  @media (max-width: 768px), (pointer: coarse) {
-    * {
-      cursor: auto;
-    }
   }
 
   html {
