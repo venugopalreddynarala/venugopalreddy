@@ -121,9 +121,10 @@ const Contact = () => {
                 </h3>
               </div>
               <p className="text-muted-foreground">
-                I'm currently exploring new opportunities in UI/UX design and would
-                love to hear about exciting projects or roles where I can contribute
-                my skills and passion for creating great user experiences.
+                I'm currently exploring new opportunities in UI/UX Design, AI/ML Development, 
+                and Full-Stack Web Development. I'd love to hear about exciting projects or 
+                roles where I can contribute my skills in creating beautiful interfaces and 
+                building intelligent solutions.
               </p>
             </Card>
           </div>
