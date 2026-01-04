@@ -1,12 +1,10 @@
 import { Card } from "@/components/ui/card";
-import { Palette, Users, Lightbulb, Target, Award, Briefcase, Code, Brain } from "lucide-react";
+import { Palette, Users, Lightbulb, Target, Code, Brain } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import AnimatedCounter from "@/components/AnimatedCounter";
 
 const About = () => {
   const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation();
   const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation();
-  const { ref: statsRef, isVisible: statsVisible } = useScrollAnimation();
 
   const highlights = [
     {
@@ -41,11 +39,6 @@ const About = () => {
     },
   ];
 
-  const stats = [
-    { number: 10, suffix: "+", label: "Projects Completed", icon: Briefcase },
-    { number: 2, suffix: "+", label: "Years Experience", icon: Award },
-    { number: 15, suffix: "+", label: "Happy Clients", icon: Users },
-  ];
 
   return (
     <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-card relative overflow-hidden">
@@ -89,32 +82,6 @@ const About = () => {
             </p>
           </Card>
 
-          {/* Stats Section */}
-          <div 
-            ref={statsRef}
-            className={`grid grid-cols-1 sm:grid-cols-3 gap-6 transition-all duration-700 ${
-              statsVisible ? 'animate-slide-up' : 'opacity-0 translate-y-10'
-            }`}
-          >
-            {stats.map((stat, index) => {
-              const Icon = stat.icon;
-              return (
-                <Card 
-                  key={index} 
-                  className="p-6 text-center hover-lift glow-border group"
-                  style={{ animationDelay: `${index * 0.15}s` }}
-                >
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-3 group-hover:bg-primary/20 transition-all duration-300 elastic-scale">
-                    <Icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <div className="text-3xl sm:text-4xl font-bold text-gradient mb-1">
-                    <AnimatedCounter end={stat.number} suffix={stat.suffix} />
-                  </div>
-                  <p className="text-sm text-muted-foreground">{stat.label}</p>
-                </Card>
-              );
-            })}
-          </div>
 
           <div 
             ref={cardsRef}
